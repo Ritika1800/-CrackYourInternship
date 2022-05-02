@@ -1,0 +1,17 @@
+Problem Link: https://leetcode.com/problems/sort-colors/
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int n=nums.size();
+        for(int i=n-1;i>=1;i--){
+            int maxindex=i;
+            for(int j=0;j<i;j++){
+                if(nums[j]>nums[maxindex])
+                    maxindex=j;
+            }
+            swap(nums[i], nums[maxindex]);
+        }
+    
+    }
+};
