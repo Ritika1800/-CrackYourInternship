@@ -1,0 +1,24 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int row=matrix.size();
+        int col=matrix[0].size();
+        vector<int> A(row,-1);
+        vector<int> B(col,-1);
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                if(matrix[i][j]==0){
+                    A[i]=0;
+                    B[j]=0;
+                }
+            }
+        }
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                if(A[i]==0 || B[j]==0){
+                    matrix[i][j]=0;
+                }
+            }
+        }
+    }
+};
