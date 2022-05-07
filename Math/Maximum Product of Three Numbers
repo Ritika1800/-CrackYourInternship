@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int maximumProduct(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int k=1, pro1=1, pro2=1;
+        int l=nums.size();
+        while(k<=3){
+            pro1*=nums[l-k];             //product of last 3 elements
+            k++;
+        }
+        k=0;
+        while(k<2){
+           pro2*=nums[k];              //product of first two elements
+           k++;
+        }
+        pro2*=nums[l-1];
+        return max(pro1, pro2);
+        
+    }
+};
