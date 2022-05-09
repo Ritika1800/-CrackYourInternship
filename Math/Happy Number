@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+        string s=to_string(n);
+        int sum=0;
+        for(int i=0;i<s.size();i++)
+        {
+            int x= s[i]-'0';
+            sum+=pow(x,2);
+        }
+        if(sum==1 || sum==7)
+            return true;
+        if(sum>1 && sum<9)
+            return false;
+        
+        return isHappy(sum);
+        
+    }
+};
