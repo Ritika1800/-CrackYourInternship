@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        ListNode* prev=NULL;
+        ListNode* curr=head;
+        while(head!=NULL){
+            curr=head->next;
+            head->next=prev;
+            prev=head;
+            head=curr;
+            
+        }
+        head=prev;
+        int c=0, res=0;
+        while(head!=NULL){
+            res+=head->val*pow(2,c);
+            c++;
+            head=head->next;
+        }
+        return res;
+        
+    }
+};
